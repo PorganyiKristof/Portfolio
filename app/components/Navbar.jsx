@@ -5,6 +5,7 @@ import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import MenuOverlay from "./MenuOverlay";
 import Image from "next/image";
+import { AnimatePresence } from "framer-motion";
 
 const NavLinks = [
   { title: "About", href: "#about" },
@@ -20,18 +21,18 @@ export default function Navbar() {
         <Link href={"/"} className="text-2xl text-white font-semibold sm:ml-24">
           <Image src="/images/logo.png" alt="logo" width="70" height="70" />
         </Link>
-        <div className="mobile-menu block md:hidden">
+        <div className="mobile-menu block md:hidden z-50">
           {!navbarOpen ? (
             <button
               onClick={() => setnavbarOpen(true)}
-              className="flex items-center px-3 py-2 border rounded border-slate-2300 text-slate-200 hover:text-white"
+              className="flex items-center px-3 py-2 border rounded border-slate-2300 text-slate-200 hover:text-white z-20"
             >
               <Bars3Icon className="h-5 w-5" />
             </button>
           ) : (
             <button
               onClick={() => setnavbarOpen(false)}
-              className="flex items-center px-3 py-2 border rounded border-slate-2300 text-slate-200 hover:text-white"
+              className="flex items-center px-3 py-2 border rounded border-slate-2300 text-slate-200 hover:text-white z-20"
             >
               <XMarkIcon className="h-5 w-5" />
             </button>
@@ -47,7 +48,9 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-      {navbarOpen ? <MenuOverlay links={NavLinks} /> : <></>}
+      <AnimatePresence>
+        {navbarOpen ? <MenuOverlay key={"navlinks"} links={NavLinks} /> : <></>}
+      </AnimatePresence>
     </nav>
   );
 }

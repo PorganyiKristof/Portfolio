@@ -106,9 +106,18 @@ export default function AboutSection() {
     <section className="about-section text-white lg:mt-24" id="about">
       <motion.div
         ref={inView}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={isInView && { opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
+        initial={{
+          transform: "translateX(-50px)",
+          opacity: 0,
+        }}
+        animate={
+          isInView && {
+            transform: "translateX(0px)",
+            left: 0,
+            opacity: 1,
+          }
+        }
+        transition={{ duration: 1, delay: 0.5 }}
         className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px16"
       >
         <Image

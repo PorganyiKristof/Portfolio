@@ -21,7 +21,7 @@ export default function HeroSection() {
             <br />
             <TypeAnimationComponent />
           </h1>
-          <p className="text-slate-300 text-base sm:text-lg lg:text-xl mb-6">
+          <p className="text-slate-300 text-base md:text-lg lg:text-xl mb-6">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
             molestiae rem voluptas omnis. Repellat autem laborum suscipit quas
             libero, corporis repudiandae blanditiis quo neque molestiae?
