@@ -5,9 +5,8 @@ export default function TypeAnimationComponent() {
   return (
     <TypeAnimation
       sequence={[
-        // Same substring at the start will only be typed out once, initially
         "Kritóf",
-        1000, // wait 1s before replacing "Mice" with "Hamsters"
+        1000,
         "Fullstack Dev",
         1000,
         "KIOSK Dev",
@@ -16,7 +15,7 @@ export default function TypeAnimationComponent() {
         1000,
       ]}
       wrapper="span"
-      speed={70}
+      speed={20}
       repeat={Infinity}
     />
   );

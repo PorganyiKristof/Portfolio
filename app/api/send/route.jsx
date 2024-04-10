@@ -36,7 +36,7 @@ export async function POST(_req, _res) {
     const emailHtmlToTheSender = render(
       <div className="flex bg-black text-white w-full">
         <div className="flex flex-col  justify-center m-auto">
-          <h1 className="font-bold uppercase border-b border-purple-500 mb-4">
+          <h1 className="font-bold uppercase border-b border-primary-500 mb-4">
             {subject}
           </h1>
           <div className="mb-4">
