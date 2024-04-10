@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 
 export default function EmailSection() {
@@ -20,7 +21,7 @@ export default function EmailSection() {
       body: JSONdata,
     };
     const response = await fetch(endpoint, options);
-    const resData = await response.json();
+    /* const resData = await response.json(); */
 
     if (response.status === 200) {
       setMsgSend(true);

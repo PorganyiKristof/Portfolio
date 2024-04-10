@@ -1,28 +1,54 @@
-import { Resend } from "resend";
+const nodemailer = require("nodemailer");
+import { render } from "@react-email/render";
+import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const formEmail = process.env.FORM_EMAIL;
+export async function POST(_req, _res) {
+  const { email, subject, message } = await _req.json();
 
-export default async function POST(_req, _res) {
-  const { body } = await _req.json();
-  const { email, subject, message } = body;
-  const { data, error } = await resend.emails.send({
-    from: formEmail,
-    to: ["porganyikristof@gmail.com", email],
-    subject: subject,
-    react: (
-      <>
-        <p>{subject}</p>
-        <p>Thank You for connecting us!</p>
-        <p>New Message submited!</p>
-        <p>{message}</p>
-      </>
-    ),
-  });
+  try {
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      port: 465,
+      secure: true, // true for 465, false for other ports
+      auth: {
+        user: process.env.google_user, // generated ethereal user
+        pass: process.env.google_password, // generated ethereal password
+      },
+    });
+    await new Promise((resolve, reject) => {
+      // verify connection configuration
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+          reject(error);
+        } else {
+          console.log("Server is ready to take our messages");
+          resolve(success);
+        }
+      });
+    });
+    const emailHtml = render(<div>{message}</div>);
 
-  if (error) {
-    return _res.status(400).json(error);
+    const options = {
+      from: `From <${process.env.google_user}>`,
+      to: email,
+      subject: subject,
+      html: emailHtml,
+    };
+    await new Promise((resolve, reject) => {
+      // send mail
+      transporter.sendMail(options, (err, info) => {
+        if (err) {
+          console.error(err);
+          reject(err);
+        } else {
+          console.log(info);
+          resolve(info);
+        }
+      });
+    });
+    return NextResponse.json(data);
+  } catch (error) {
+    return NextResponse.json({ error });
   }
-
-  _res.status(200).json(data);
 }
