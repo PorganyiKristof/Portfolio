@@ -41,7 +41,16 @@ export default function EmailSection() {
           get back to you!
         </p>
         <div className="socials flex flex-row gap-6">
-          <p>LINKEDIN</p>
+          <button
+            className="px-6 py-3  w-full sm:w-fit rounded-full mr-4 border hover:bg-slate-800"
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/in/kristóf-porgányi-5bb245251/"
+              )
+            }
+          >
+            LINKEDIN
+          </button>
         </div>
       </div>
 
