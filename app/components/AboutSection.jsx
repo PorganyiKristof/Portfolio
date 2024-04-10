@@ -77,7 +77,7 @@ const TAB_DATA = [
           </p>
           <p>InnoTeq Kft. Pécs 7626 Király Street 66</p>
         </OnClickListItem>
-        <OnClickListItem link={"https://www.seaslipps.hu"}>
+        <OnClickListItem link={"https://www.seaslipps.com"}>
           <p>01. 11. 2023. - Currently</p>
           <p>
             Mail order, Internet retail. Administration, marketing, parcel
