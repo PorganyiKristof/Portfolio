@@ -112,7 +112,7 @@ export default function AboutSection() {
         <div className="text-center sm:text-left">
           <h1 className="text-4xl font-bold text-white mb-4 mt-4">About Me</h1>
           <p className="text-base md:text-lg">
-            I'm a 23-year-old. Currently I work at InnoTeq Kft. 8 hours a day
+            I`m a 23-year-old. Currently I work at InnoTeq Kft. 8 hours a day
             for almost 3 and a half years. Most of my projects I work alone, so
             I would like to try myself in a reliable team. I consider myself a
             helpful and empathetic person, which allows me to work effectively
