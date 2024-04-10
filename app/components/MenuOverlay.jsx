@@ -8,7 +8,7 @@ export default function MenuOverlay({ links }) {
       initial={{ transform: "translateY(-500px)", opacity: 0 }}
       animate={{ transform: "translateY(0px)", opacity: 1 }}
       transition={{ duration: 0.4 }}
-      exit={{ opacity: 0 }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
       className="flex flex-col py-4 items-center text-3xl justify-center fixed left-0 top-0 right-0 bottom-0 bg-[#121212] bg-opacity-95"
     >
       {links.map((link, index) => (
