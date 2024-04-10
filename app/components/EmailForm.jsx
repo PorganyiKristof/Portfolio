@@ -20,7 +20,6 @@ export default function EmailForm() {
       body: JSONdata,
     };
     const response = await fetch(endpoint, options);
-    /* const resData = await response.json(); */
 
     if (response.status === 200) {
       setMsgSend(true);
@@ -46,7 +45,7 @@ export default function EmailForm() {
             id="email"
             name="email"
             required
-            placeholder="something@smthg.com"
+            placeholder="something@smtg.com"
             className="mt-2 bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-xl block w-full p-2.5"
           />
         </div>
@@ -77,7 +76,7 @@ export default function EmailForm() {
         </div>
         <button
           type="submit"
-          className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+          className="bg-primary-950 border hover:bg-primary-600 text-white font-medium py-1.5 px-2 rounded-lg w-full"
         >
           Send Message
         </button>
