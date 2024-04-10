@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
-import React, { useRef, useState, useTransition } from "react";
+import React, { useEffect, useRef, useState, useTransition } from "react";
 import TabButton from "./TabButton";
-import { motion, useInView } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 
 const OnClickListItem = ({ children, link }) => {
   const handleClick = () => {
@@ -37,7 +37,7 @@ const TAB_DATA = [
     title: "Skills",
     id: "skills",
     content: (
-      <ul className="content grid grid-flow-row grid-cols-2">
+      <ul className="content grid grid-flow-row grid-cols-2 gap-4">
         <li>React</li>
         <li>React Native</li>
         <li>Next 13</li>
@@ -51,7 +51,7 @@ const TAB_DATA = [
     title: "Education",
     id: "education",
     content: (
-      <ul className="[&>*]:border [&>*]:mt-2 [&>*]:rounded-md [&>*]:p-2">
+      <ul className="text-xs [&>*]:border [&>*]:mt-2 [&>*]:rounded-md [&>*]:p-2">
         <OnClickListItem link={"https://www.csany-zeg.hu"}>
           <p>09. 2015 – 05. 2019</p>
           <p>Csány László Közgazdasági Szakközépiskola Zalaegerszeg</p>
@@ -69,7 +69,7 @@ const TAB_DATA = [
     title: "Experimence",
     id: "experimence",
     content: (
-      <ul className="[&>*]:border [&>*]:mt-2 [&>*]:rounded-md [&>*]:p-2">
+      <ul className="text-xs [&>*]:border [&>*]:mt-2 [&>*]:rounded-md [&>*]:p-2">
         <OnClickListItem link={"https://innoteq.hu"}>
           <p>03. 2021. - Currently</p>
           <p>
@@ -93,9 +93,14 @@ const TAB_DATA = [
 
 export default function AboutSection() {
   const [tab, setTab] = useState("skills");
+  const [reload, setReload] = useState(false);
   const [isPending, startTransition] = useTransition();
   const inView = useRef();
   const isInView = useInView(inView, { once: true });
+
+  useEffect(() => {
+    setReload((prev) => !prev);
+  }, [tab]);
 
   const handleTabChange = (id) => {
     startTransition(() => {
@@ -158,8 +163,18 @@ export default function AboutSection() {
               Experimence
             </TabButton>
           </div>
-          <div className="mt-4 text-left">
-            {TAB_DATA.find((t) => t.id === tab).content}
+          <div className="relative h-32">
+            <motion.div
+              key={"tab"}
+              initial={{
+                opacity: 0,
+              }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mt-4 text-left absolute"
+            >
+              {TAB_DATA.find((t) => t.id === tab).content}
+            </motion.div>
           </div>
         </div>
       </motion.div>
