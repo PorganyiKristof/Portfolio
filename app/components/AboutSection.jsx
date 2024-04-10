@@ -163,7 +163,7 @@ export default function AboutSection() {
               Experimence
             </TabButton>
           </div>
-          <div className="relative h-32">
+          <div className="relative h-56 sm:h-32">
             <motion.div
               key={"tab"}
               initial={{
