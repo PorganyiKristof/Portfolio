@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useTransition } from "react";
+import React, { useRef, useState, useTransition } from "react";
 import TabButton from "./TabButton";
+import { motion, useInView } from "framer-motion";
 
 const OnClickListItem = ({ children, link }) => {
   const handleClick = () => {
@@ -93,6 +94,8 @@ const TAB_DATA = [
 export default function AboutSection() {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
+  const inView = useRef();
+  const isInView = useInView(inView, { once: true });
 
   const handleTabChange = (id) => {
     startTransition(() => {
@@ -101,7 +104,13 @@ export default function AboutSection() {
   };
   return (
     <section className="about-section text-white lg:mt-24" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px16">
+      <motion.div
+        ref={inView}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={isInView && { opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px16"
+      >
         <Image
           src={"/images/about-image.png"}
           width={500}
@@ -144,7 +153,7 @@ export default function AboutSection() {
             {TAB_DATA.find((t) => t.id === tab).content}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
