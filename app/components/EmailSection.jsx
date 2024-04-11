@@ -7,7 +7,7 @@ export default function EmailSection() {
   return (
     <section
       id="contact"
-      className="text-white w-full py-8 grid md:grid-cols-2 px-4 lg:px-24 mt-4 md:mt-24 gap-4 content-center relative bg-gradient-to-br from-primary-600 to-secondary-950"
+      className="text-white w-full py-12 grid md:grid-cols-2 px-4 lg:px-24 mt-4 md:mt-24 gap-4 content-center relative bg-gradient-to-br from-primary-600 to-secondary-950"
     >
       <div className="">
         <h5 className="text-xl font-bold text-wgite my-2">Let`s Connect</h5>

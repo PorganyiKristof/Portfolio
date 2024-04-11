@@ -13,6 +13,9 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      gridTemplateColumns: {
+        'fluid': 'repeat(auto-fit,minmax(20rem,1fr))',
+      },
     },
     colors: {
       ...colors,
