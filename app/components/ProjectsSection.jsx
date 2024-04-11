@@ -1,30 +1,34 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-
 const PROJECT_DATA = [
   {
     title: "Netflix Clone",
     xl_image: "/images/projects/ntfxclone_xl.PNG",
-    xs_image: "./images/projects/ntfxclone_xs.PNG",
+    xs_image: "/images/projects/ntfxclone_xs.PNG",
     link: "https://movies-phi-drab.vercel.app",
+    text: (
+      <span>
+        API , Next Js , TailwindCSS <br />
+      </span>
+    ),
+  },
+  {
+    title: "Netflix Clone",
+    xl_image: "/images/projects/ntfxclone_xl.PNG",
+    xs_image: "/images/projects/ntfxclone_xs.PNG",
     text: "",
   },
   {
     title: "Netflix Clone",
     xl_image: "/images/projects/ntfxclone_xl.PNG",
-    xs_image: "./images/projects/ntfxclone_xs.PNG",
-    text: "",
-  },
-  {
-    title: "Netflix Clone",
-    xl_image: "/images/projects/ntfxclone_xl.PNG",
-    xs_image: "./images/projects/ntfxclone_xs.PNG",
+    xs_image: "/images/projects/ntfxclone_xs.PNG",
     text: "",
   },
 ];
 const Card = ({ p, index }) => {
+  const [galleryOpen, setGalleryOpen] = useState(false);
   const ref = useRef();
   const isInView = useInView(ref, { once: true });
   const handletitleClick = () => {
@@ -47,11 +51,49 @@ const Card = ({ p, index }) => {
       }
       transition={{ duration: 1, delay: index / 3 }}
     >
-      <div className="relative group">
+      <div className="relative group overflow-hidden">
         <div className=" absolute top-0 left-0 bottom-0 right-0 rounded-t-xl bg-gray-800/[.7] hidden group-hover:flex"></div>
-        <div className="absolute overlay -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 hidden group-hover:flex">
-          asdasd
-        </div>
+        <motion.div
+          animate={galleryOpen ? { position: "absolute", left: "-65%" } : {}}
+          className="absolute overlay w-full h-full gap-10 p-5 text-sm text-left -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 hidden group-hover:flex flex-col"
+        >
+          <div className="grid grid-cols-2 relative w-[220%] h-full">
+            <div className="flex">
+              <div>{p?.text}</div>
+              <button
+                className="border-2 rounded-full px-6 py-4 w-fit m-auto hover:bg-slate-700"
+                onClick={() => setGalleryOpen((prev) => !prev)}
+              >
+                Gallery
+              </button>
+            </div>
+            <div className="grid grid-cols-12 ">
+              <button
+                className="border-2 rounded-full col-span-5 px-6 py-4 w-fit m-auto hover:bg-slate-700"
+                onClick={() => setGalleryOpen((prev) => !prev)}
+              >
+                Info
+              </button>
+              <div className="col-span-7 flex flex-row w-full h-full">
+                <Image
+                  src={p.xs_image}
+                  alt="project-image"
+                  className="rounded-xl h-fit"
+                  width="200"
+                  height="200"
+                />
+                {/* <Image
+                  src={p.xl_image}
+                  alt="project-image"
+                  className=""
+                  width="100"
+                  height="100"
+                /> */}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         <Image
           src={p.xl_image}
           alt="project-image"
