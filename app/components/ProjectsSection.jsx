@@ -6,21 +6,21 @@ import { motion, useInView } from "framer-motion";
 const PROJECT_DATA = [
   {
     title: "Netflix Clone",
-    xl_image: "/images/projects/ntfxclone_xl.png",
-    xs_image: "./images/projects/ntfxclone_xs.png",
+    xl_image: "/images/projects/ntfxclone_xl.PNG",
+    xs_image: "./images/projects/ntfxclone_xs.PNG",
     link: "https://movies-phi-drab.vercel.app",
     text: "",
   },
   {
     title: "Netflix Clone",
-    xl_image: "/images/projects/ntfxclone_xl.png",
-    xs_image: "./images/projects/ntfxclone_xs.png",
+    xl_image: "/images/projects/ntfxclone_xl.PNG",
+    xs_image: "./images/projects/ntfxclone_xs.PNG",
     text: "",
   },
   {
     title: "Netflix Clone",
-    xl_image: "/images/projects/ntfxclone_xl.png",
-    xs_image: "./images/projects/ntfxclone_xs.png",
+    xl_image: "/images/projects/ntfxclone_xl.PNG",
+    xs_image: "./images/projects/ntfxclone_xs.PNG",
     text: "",
   },
 ];
@@ -54,7 +54,7 @@ const Card = ({ p, index }) => {
         </div>
         <Image
           src={p.xl_image}
-          alt="hero-image"
+          alt="project-image"
           className="rounded-t-xl w-fit h-fit"
           width="500"
           height="500"
