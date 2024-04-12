@@ -132,7 +132,7 @@ export default function ProjectsSection() {
   return (
     <section className="text-white text-center  " id="projects">
       <h1 className="text-4xl mb-8">Projects</h1>
-      <div className="grid grid-cols-fluid gap-10">
+      <div className="flex flex-col md:grid grid-cols-fluid gap-10">
         {PROJECT_DATA.map((p, index) => (
           <Card key={index} p={p} index={index} />
         ))}

@@ -143,7 +143,7 @@ export default function AboutSection() {
             I always set myself new goals and strive for the best in everything
             I do.
           </p>
-          <div className="flex flex-row mt-8 ">
+          <div className="md:flex flex-row mt-8 ">
             <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
