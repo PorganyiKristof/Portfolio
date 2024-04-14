@@ -31,7 +31,54 @@ const OnClickListItem = ({ children, link }) => {
     </li>
   );
 };
+const TabSection = () => {
+  const [tab, setTab] = useState("skills");
+  const [isPending, startTransition] = useTransition();
 
+  const handleTabChange = (id) => {
+    startTransition(() => {
+      setTab(id);
+    });
+  };
+  return (
+    <div className="sm:grid md:block lg:grid grid-cols-3 mt-4 sm:mt-0">
+      <div className="flex flex-col justify-center w-1/2 m-auto">
+        <TabButton
+          selectTab={() => handleTabChange("skills")}
+          active={tab === "skills"}
+        >
+          Skills
+        </TabButton>
+        <TabButton
+          selectTab={() => handleTabChange("education")}
+          active={tab === "education"}
+        >
+          Education
+        </TabButton>
+        <TabButton
+          selectTab={() => handleTabChange("experimence")}
+          active={tab === "experimence"}
+        >
+          Experimence
+        </TabButton>
+      </div>
+      <div key={tab} className="relative col-span-2">
+        <motion.div
+          key={"tab"}
+          initial={{
+            opacity: 0.5,
+            transform: "translateX(-50px)",
+          }}
+          animate={{ opacity: 1, transform: "translateX(0px)" }}
+          transition={{ duration: 0.5 }}
+          className="mt-4 text-left"
+        >
+          {TAB_DATA.find((t) => t.id === tab).content}
+        </motion.div>
+      </div>
+    </div>
+  );
+};
 const TAB_DATA = [
   {
     title: "Main Skills",
@@ -84,7 +131,7 @@ const TAB_DATA = [
           </p>
           <p>InnoTeq Kft. Pécs 7626 Király Street 66</p>
         </OnClickListItem>
-        <OnClickListItem /*  link={"https://www.seaslipps.com"} */>
+        <OnClickListItem link={"https://www.seaslipps.com"}>
           <p>01. 11. 2023. - Currently</p>
           <p>
             Mail order, Internet retail. Administration, marketing, parcel
@@ -98,21 +145,9 @@ const TAB_DATA = [
 ];
 
 export default function AboutSection() {
-  const [tab, setTab] = useState("skills");
-  const [reload, setReload] = useState(false);
-  const [isPending, startTransition] = useTransition();
   const inView = useRef();
   const isInView = useInView(inView, { once: true });
 
-  useEffect(() => {
-    setReload((prev) => !prev);
-  }, [tab]);
-
-  const handleTabChange = (id) => {
-    startTransition(() => {
-      setTab(id);
-    });
-  };
   return (
     <section className="about-section text-white lg:mt-24" id="about">
       <motion.div
@@ -129,7 +164,7 @@ export default function AboutSection() {
           }
         }
         transition={{ duration: 1, delay: 0.5 }}
-        className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px16"
+        className="md:grid md:grid-cols-2 gap-8 items-center py-4 px-4 xl:gap-16 sm:py-16 xl:px16"
       >
         <Image
           src={"/images/about-image.png"}
@@ -139,7 +174,7 @@ export default function AboutSection() {
           alt="about-image"
         />
         <div className="text-center sm:text-left">
-          <h1 className="text-4xl font-bold text-white mb-4 mt-4">About Me</h1>
+          <h1 className="text-4xl font-bold text-white my-4">About Me</h1>
           <p className="text-base md:text-lg">
             I&apos;m a 23-year-old. Currently I work at InnoTeq Kft. 8 hours a
             day for almost 3 and a half years. Most of my projects I work alone,
@@ -149,39 +184,7 @@ export default function AboutSection() {
             I always set myself new goals and strive for the best in everything
             I do.
           </p>
-          <div className="md:flex flex-row mt-8 ">
-            <TabButton
-              selectTab={() => handleTabChange("skills")}
-              active={tab === "skills"}
-            >
-              Skills
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("education")}
-              active={tab === "education"}
-            >
-              Education
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("experimence")}
-              active={tab === "experimence"}
-            >
-              Experimence
-            </TabButton>
-          </div>
-          <div className="relative h-56 sm:h-32">
-            <motion.div
-              key={"tab"}
-              initial={{
-                opacity: 0,
-              }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="mt-4 text-left absolute w-full h-full"
-            >
-              {TAB_DATA.find((t) => t.id === tab).content}
-            </motion.div>
-          </div>
+          <TabSection />
         </div>
       </motion.div>
     </section>
