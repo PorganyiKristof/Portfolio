@@ -2,29 +2,62 @@
 import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+const ProtectedComp = ({ children }) => {
+  return (
+    <div className="relative h-full w-full">
+      {children}
+      <br />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-red-600 w-fit m-auto text-center uppercase rounded-lg p-2 px-4 font-bold">
+        Protected
+      </div>
+    </div>
+  );
+};
 const PROJECT_DATA = [
   {
     title: "Netflix Clone",
     xl_image: "/images/projects/ntfxclone_xl.PNG",
-    xs_image: "/images/projects/ntfxclone_xs.PNG",
     link: "https://movies-phi-drab.vercel.app",
+    tag: ["web-page"],
     text: (
       <span>
-        API , Next Js , TailwindCSS <br />
+        API , Next Js , TailwindCSS , Framer Motion
+        <br />
       </span>
     ),
   },
   {
-    title: "Netflix Clone",
-    xl_image: "/images/projects/ntfxclone_xl.PNG",
-    xs_image: "/images/projects/ntfxclone_xs.PNG",
-    text: "",
+    title: "SeaSlipps",
+    xl_image: "/images/projects/shopify_xl.PNG",
+    link: "https://seaslipps.com",
+    tag: ["web-page"],
+    text: (
+      <span>
+        Shopify , Meta Adsmanager , Meta Business , szamlazz.hu , COD Form ,
+        e-commerce
+        <br />
+      </span>
+    ),
   },
   {
-    title: "Netflix Clone",
-    xl_image: "/images/projects/ntfxclone_xl.PNG",
-    xs_image: "/images/projects/ntfxclone_xs.PNG",
-    text: "",
+    title: "Crochet Shop",
+    xl_image: "/images/projects/crochet_xl.PNG",
+    link: "https://fluffy-fuzzies.vercel.app",
+    tag: ["web-page"],
+    text: (
+      <span>
+        Next Js , TailwindCSS, Google Auth , Material UI , Framer Motion ,
+        Nodemailer
+        <br />
+      </span>
+    ),
+  },
+  {
+    title: "Barlangasz",
+    xl_image: "/images/projects/barlangasz_xl.PNG",
+    link: "https://www.jpm.hu/barlangasz/",
+    tag: ["web-page"],
+    text: <ProtectedComp>11 interactive games</ProtectedComp>,
   },
 ];
 const Card = ({ p, index }) => {
@@ -54,11 +87,7 @@ const Card = ({ p, index }) => {
       <div className="relative group overflow-hidden">
         <div className=" absolute top-0 left-0 bottom-0 right-0 rounded-t-xl bg-gray-800/[.7] hidden group-hover:flex"></div>
         <div className="absolute overlay w-full h-full gap-10 p-5 text-sm text-left -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 hidden group-hover:flex flex-col">
-          <div className="grid grid-cols-2 relative w-[220%] h-full">
-            <div className="flex">
-              <div>{p?.text}</div>
-            </div>
-          </div>
+          <div className="sm:text-lg h-full ">{p?.text}</div>
         </div>
 
         <Image
@@ -98,7 +127,7 @@ const Card = ({ p, index }) => {
 export default function ProjectsSection() {
   return (
     <section className=" text-white text-center  " id="projects">
-      <h1 className="text-4xl mb-8">Projects</h1>
+      <h1 className="text-4xl mb-12">Web Projects</h1>
       <div className="flex flex-col md:grid grid-cols-fluid gap-10">
         {PROJECT_DATA.map((p, index) => (
           <Card key={index} p={p} index={index} />
