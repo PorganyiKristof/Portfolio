@@ -53,46 +53,13 @@ const Card = ({ p, index }) => {
     >
       <div className="relative group overflow-hidden">
         <div className=" absolute top-0 left-0 bottom-0 right-0 rounded-t-xl bg-gray-800/[.7] hidden group-hover:flex"></div>
-        <motion.div
-          animate={galleryOpen ? { position: "absolute", left: "-65%" } : {}}
-          className="absolute overlay w-full h-full gap-10 p-5 text-sm text-left -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 hidden group-hover:flex flex-col"
-        >
+        <div className="absolute overlay w-full h-full gap-10 p-5 text-sm text-left -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 hidden group-hover:flex flex-col">
           <div className="grid grid-cols-2 relative w-[220%] h-full">
             <div className="flex">
               <div>{p?.text}</div>
-              <button
-                className="border-2 rounded-full px-6 py-4 w-fit m-auto hover:bg-slate-700"
-                onClick={() => setGalleryOpen((prev) => !prev)}
-              >
-                Gallery
-              </button>
-            </div>
-            <div className="grid grid-cols-12 ">
-              <button
-                className="border-2 rounded-full col-span-5 px-6 py-4 w-fit m-auto hover:bg-slate-700"
-                onClick={() => setGalleryOpen((prev) => !prev)}
-              >
-                Info
-              </button>
-              <div className="col-span-7 flex flex-row w-full h-full">
-                <Image
-                  src={p.xs_image}
-                  alt="project-image"
-                  className="rounded-xl h-fit"
-                  width="200"
-                  height="200"
-                />
-                {/* <Image
-                  src={p.xl_image}
-                  alt="project-image"
-                  className=""
-                  width="100"
-                  height="100"
-                /> */}
-              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         <Image
           src={p.xl_image}
@@ -130,7 +97,7 @@ const Card = ({ p, index }) => {
 
 export default function ProjectsSection() {
   return (
-    <section className="text-white text-center  " id="projects">
+    <section className=" text-white text-center  " id="projects">
       <h1 className="text-4xl mb-8">Projects</h1>
       <div className="flex flex-col md:grid grid-cols-fluid gap-10">
         {PROJECT_DATA.map((p, index) => (

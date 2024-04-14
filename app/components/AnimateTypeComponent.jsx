@@ -13,6 +13,8 @@ export default function TypeAnimationComponent() {
         1000,
         "Business Owner",
         1000,
+        "Marketing Designer",
+        1000,
       ]}
       wrapper="span"
       speed={20}
