@@ -34,15 +34,21 @@ const OnClickListItem = ({ children, link }) => {
 
 const TAB_DATA = [
   {
-    title: "Skills",
+    title: "Main Skills",
     id: "skills",
     content: (
-      <ul className="content grid grid-flow-row grid-cols-2 gap-4">
+      <ul className="text-xs sm:text-sm content grid grid-flow-row grid-cols-3 gap-2 [&>li]:px-2 [&>li]:border-r-2 text-center justify-center items-center">
         <li>React</li>
         <li>React Native</li>
         <li>Next 13</li>
         <li>Node.js</li>
         <li>Tailwind CSS</li>
+        <li>Symfony</li>
+        <li>Symfony</li>
+        <li>Symfony</li>
+        <li>Symfony</li>
+        <li>Symfony</li>
+        <li>Symfony</li>
         <li>Symfony</li>
       </ul>
     ),
