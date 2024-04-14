@@ -37,7 +37,7 @@ const TAB_DATA = [
     title: "Main Skills",
     id: "skills",
     content: (
-      <ul className="text-xs sm:text-sm content grid grid-flow-row grid-cols-3 gap-2 [&>li]:px-2 [&>li]:border-r-2 text-center justify-center items-center">
+      <ul className="h-full text-xs sm:text-sm content grid grid-flow-row grid-cols-3 gap-2 [&>li]:px-2 [&>li]:border-r-2 text-center justify-center items-center">
         <li>React</li>
         <li>React Native</li>
         <li>Next 13</li>
@@ -177,7 +177,7 @@ export default function AboutSection() {
               }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="mt-4 text-left absolute"
+              className="mt-4 text-left absolute w-full h-full"
             >
               {TAB_DATA.find((t) => t.id === tab).content}
             </motion.div>
