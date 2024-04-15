@@ -9,11 +9,20 @@ const SlideAnimateComponent = ({ children }) => {
     target: ref,
     offset: ["start 70%", "end start"],
   });
-  const animateY = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
+  const animateY = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    ["0%", "80%", "0%"]
+  );
+  const animateColor = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    ["#fff", "#401f86", "#401e"]
+  );
   return (
     <motion.div
       ref={ref}
-      style={{ x: animateY }}
+      style={{ x: animateY, color: animateColor }}
       className="text-2xl text-left py-8"
     >
       {children}
@@ -24,7 +33,7 @@ const SlideAnimateComponent = ({ children }) => {
 const MoveSquares = () => {
   const arrays = Array(14).fill(
     Array(20).fill(
-      <span className="animate-spin size-16 border-r-2 border-b-2 rounded-sm m-1 opacity-10 hover:opacity-100" />
+      <span className=" size-16 border-r-2 border-b-2 rounded-sm m-1  opacity-10 hover:opacity-100" />
     )
   );
 
@@ -40,16 +49,10 @@ const MoveSquares = () => {
 export default function SkillsSection() {
   return (
     <section className="skills min-h-screen my-8 text-white overflow-hidden relative">
-      <div className="md:hidden">
-        <SlideAnimateComponent>
-          <div className="font-bold w-full text-center">My Main Skills</div>
-        </SlideAnimateComponent>
-      </div>
-      <div className="hidden md:block">
-        <SlideAnimateComponent>
-          <div className="font-bold text-4xl">My Main Skills</div>
-        </SlideAnimateComponent>
-      </div>
+      <SlideAnimateComponent>
+        <div className="font-bold w-full text-center">My Main Skills</div>
+      </SlideAnimateComponent>
+
       <SlideAnimateComponent>React</SlideAnimateComponent>
       <SlideAnimateComponent>Next Js 13</SlideAnimateComponent>
       <SlideAnimateComponent>TailwindCSS</SlideAnimateComponent>
