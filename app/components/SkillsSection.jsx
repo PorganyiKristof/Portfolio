@@ -11,13 +11,13 @@ const SlideAnimateComponent = ({ children }) => {
   });
   const animateY = useTransform(
     scrollYProgress,
-    [0, 0.5, 1],
-    ["0%", "80%", "0%"]
+    [0, 0.5, 0.6, 1],
+    ["0%", "55%", "55%", "0%"]
   );
   const animateColor = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["#fff", "#401f86", "#401e"]
+    ["#401f86", "#fff", "#401e"]
   );
   return (
     <motion.div
@@ -50,7 +50,7 @@ export default function SkillsSection() {
   return (
     <section className="skills min-h-screen my-8 text-white overflow-hidden relative">
       <SlideAnimateComponent>
-        <div className="font-bold w-full text-center">My Main Skills</div>
+        <div className="font-bold">My Main Skills</div>
       </SlideAnimateComponent>
 
       <SlideAnimateComponent>React</SlideAnimateComponent>
