@@ -32,7 +32,7 @@ const OnClickListItem = ({ children, link }) => {
   );
 };
 const TabSection = () => {
-  const [tab, setTab] = useState("skills");
+  const [tab, setTab] = useState("experimence");
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -41,14 +41,17 @@ const TabSection = () => {
     });
   };
   return (
-    <div className="sm:grid md:block lg:grid grid-cols-3 mt-4 sm:mt-0">
+    <motion.div
+      layout
+      className="sm:grid md:block lg:grid grid-cols-3 mt-4 sm:mt-0"
+    >
       <div className="flex flex-col justify-center w-1/2 m-auto">
-        <TabButton
+        {/* <TabButton
           selectTab={() => handleTabChange("skills")}
           active={tab === "skills"}
         >
           Skills
-        </TabButton>
+        </TabButton> */}
         <TabButton
           selectTab={() => handleTabChange("education")}
           active={tab === "education"}
@@ -62,25 +65,27 @@ const TabSection = () => {
           Experimence
         </TabButton>
       </div>
-      <div key={tab} className="relative col-span-2">
-        <motion.div
-          key={"tab"}
-          initial={{
-            opacity: 0.5,
-            transform: "translateX(-50px)",
-          }}
-          animate={{ opacity: 1, transform: "translateX(0px)" }}
-          transition={{ duration: 0.5 }}
-          className="mt-4 text-left"
-        >
-          {TAB_DATA.find((t) => t.id === tab).content}
-        </motion.div>
-      </div>
-    </div>
+      <AnimatePresence mode="popLayout">
+        <div key={tab} className="relative col-span-2">
+          <motion.div
+            key={"tab"}
+            initial={{
+              opacity: 0.5,
+              /* transform: "translateX(-50px)", */
+            }}
+            animate={{ opacity: 1 /* , transform: "translateX(0px)" */ }}
+            transition={{ duration: 0.5 }}
+            className="mt-4 text-left"
+          >
+            {TAB_DATA.find((t) => t.id === tab).content}
+          </motion.div>
+        </div>
+      </AnimatePresence>
+    </motion.div>
   );
 };
 const TAB_DATA = [
-  {
+  /* {
     title: "Main Skills",
     id: "skills",
     content: (
@@ -96,7 +101,7 @@ const TAB_DATA = [
         <li>Meta Business Suit</li>
       </ul>
     ),
-  },
+  }, */
   {
     title: "Education",
     id: "education",
@@ -146,7 +151,10 @@ export default function AboutSection() {
   const isInView = useInView(inView, { once: true });
 
   return (
-    <section className="about-section text-white lg:mt-24" id="about">
+    <section
+      className="about-section text-white min-h-screen lg:mt-24 flex justify-center"
+      id="about"
+    >
       <motion.div
         ref={inView}
         initial={{

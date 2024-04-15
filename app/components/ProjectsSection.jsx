@@ -15,18 +15,6 @@ const ProtectedComp = ({ children }) => {
 };
 const PROJECT_DATA = [
   {
-    title: "Netflix Clone",
-    xl_image: "/images/projects/ntfxclone_xl.PNG",
-    link: "https://movies-phi-drab.vercel.app",
-    tag: ["web-page"],
-    text: (
-      <span>
-        API , Next Js , TailwindCSS , Framer Motion
-        <br />
-      </span>
-    ),
-  },
-  {
     title: "SeaSlipps",
     xl_image: "/images/projects/shopify_xl.PNG",
     link: "https://seaslipps.com",
@@ -39,6 +27,19 @@ const PROJECT_DATA = [
       </span>
     ),
   },
+  {
+    title: "Netflix Clone",
+    xl_image: "/images/projects/ntfxclone_xl.PNG",
+    link: "https://movies-phi-drab.vercel.app",
+    tag: ["web-page"],
+    text: (
+      <span>
+        API , Next Js , TailwindCSS , Framer Motion
+        <br />
+      </span>
+    ),
+  },
+
   {
     title: "Crochet Shop",
     xl_image: "/images/projects/crochet_xl.PNG",
