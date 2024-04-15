@@ -90,13 +90,10 @@ const TAB_DATA = [
         <li>Next 13</li>
         <li>Node.js</li>
         <li>Tailwind CSS</li>
-        <li>Symfony</li>
-        <li>Symfony</li>
-        <li>Symfony</li>
-        <li>Symfony</li>
-        <li>Symfony</li>
-        <li>Symfony</li>
-        <li>Symfony</li>
+        <li>R3F / Drei</li>
+        <li>Framer Motion</li>
+        <li>Facebook Ads Manager</li>
+        <li>Meta Business Suit</li>
       </ul>
     ),
   },
