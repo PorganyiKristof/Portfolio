@@ -6,13 +6,13 @@ export default function Spline3D() {
   const ref = useRef();
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start 60%", "end start"],
+    offset: ["start 10%", "end start"],
   });
-  const moveYanimation = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
+  const moveYanimation = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   return (
     <motion.div
       ref={ref}
-      className="h-screen absolute left-1/4 md:left-1/3 w-full -top-44 "
+      className="hidden md:block h-screen absolute left-1/4 md:left-1/3 w-full -top-28 "
       style={{ y: moveYanimation }}
     >
       <script
