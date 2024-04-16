@@ -2,6 +2,7 @@
 import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+import Spline3D from "./Spline3D";
 const ProtectedComp = ({ children }) => {
   return (
     <div className="relative h-full w-full">
@@ -62,7 +63,6 @@ const PROJECT_DATA = [
   },
 ];
 const Card = ({ p, index }) => {
-  const [galleryOpen, setGalleryOpen] = useState(false);
   const ref = useRef();
   const isInView = useInView(ref, { once: true });
   const handletitleClick = () => {
@@ -71,7 +71,7 @@ const Card = ({ p, index }) => {
   return (
     <motion.div
       ref={ref}
-      className="border-2 border-primary-400 rounded-xl bg-primary-950"
+      className="border-2 border-primary-400 rounded-xl bg-primary-950 bg-opacity-50 border-opacity-50"
       initial={{
         transform: "translateY(50px)",
         opacity: 0,
@@ -100,7 +100,7 @@ const Card = ({ p, index }) => {
         />
       </div>
       <h5
-        className={`border-t-2 border-primary-400 p-4 uppercase text-xl relative hover:bg-primary-800`}
+        className={`flex border-t-2 border-primary-400 p-4 uppercase text-md relative hover:bg-primary-800  justify-center`}
         onClick={handletitleClick}
       >
         {p.title}
@@ -127,9 +127,10 @@ const Card = ({ p, index }) => {
 
 export default function ProjectsSection() {
   return (
-    <section className=" text-white text-center  " id="projects">
-      <h1 className="text-4xl mb-12">Web Projects</h1>
-      <div className="flex flex-col md:grid grid-cols-fluid gap-10">
+    <section className=" text-white text-center relative" id="projects">
+      <Spline3D />
+      <h1 className="text-4xl mb-12 z-50">Web Projects</h1>
+      <div className=" flex flex-col md:grid grid-cols-fluid gap-8 w-4/6">
         {PROJECT_DATA.map((p, index) => (
           <Card key={index} p={p} index={index} />
         ))}

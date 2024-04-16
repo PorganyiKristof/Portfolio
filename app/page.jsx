@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import AboutSection from "./components/AboutSection";
 import AchievementsSection from "./components/AchivementsSection";
 import EmailSection from "./components/EmailSection";
@@ -8,6 +9,7 @@ import ParticlesBG from "./components/Particles";
 import ProjectsSection from "./components/ProjectsSection";
 import SkillsSection from "./components/SkillsSection";
 import TopBar from "./components/TopBar";
+import Spline3D from "./components/Spline3D";
 
 export default function Home() {
   return (
