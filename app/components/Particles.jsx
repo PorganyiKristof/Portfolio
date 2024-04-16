@@ -39,7 +39,7 @@ export default function ParticlesBG() {
         },
         modes: {
           push: {
-            quantity: 90,
+            quantity: 10,
           },
           repulse: {
             distance: 200,
@@ -55,8 +55,8 @@ export default function ParticlesBG() {
           color: "#371F76",
           distance: 200,
           enable: true,
-          opacity: 0.5,
-          width: 1,
+          opacity: 1,
+          width: 0.5,
         },
         collisions: {
           enable: true,
@@ -79,7 +79,7 @@ export default function ParticlesBG() {
           value: 120,
         },
         opacity: {
-          value: 0.5,
+          value: 0.7,
         },
         shape: {
           type: "circle",
