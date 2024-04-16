@@ -2,6 +2,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function ParticlesBG() {
   const [init, setInit] = useState(false);
@@ -60,7 +61,7 @@ export default function ParticlesBG() {
         },
         links: {
           color: "#371F76",
-          distance: 150,
+          distance: 200,
           enable: true,
           opacity: 0.5,
           width: 1,
@@ -83,7 +84,7 @@ export default function ParticlesBG() {
             enable: true,
             area: 800,
           },
-          value: 250,
+          value: 120,
         },
         opacity: {
           value: 0.5,
@@ -102,12 +103,20 @@ export default function ParticlesBG() {
 
   if (init) {
     return (
-      <Particles
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={options}
-        className="w-full h-full absolute "
-      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        tranform={{ delay: 2 }}
+      >
+        <AnimatePresence>
+          <Particles
+            id="tsparticles"
+            particlesLoaded={particlesLoaded}
+            options={options}
+            className="w-full h-full absolute "
+          />
+        </AnimatePresence>
+      </motion.div>
     );
   }
 }

@@ -26,10 +26,10 @@ export default function HeroSection() {
             </div>
           </h1>
           <p className="text-slate-300 text-base md:text-lg w-5/6 m-auto md:m-0 lg:text-xl mb-4">
-            I'm a developer hailing from Hungary, and I've already made waves by
-            crafting a successful brand in 2024. My hunger for learning is
-            insatiable, and I'm constantly diving into new realms of knowledge
-            to stay ahead in the game.
+            I&apos;m a developer hailing from Hungary, and I&apos;ve already
+            made waves by crafting a successful brand in 2024. My hunger for
+            learning is insatiable, and I&apos;m constantly diving into new
+            realms of knowledge to stay ahead in the game.
           </p>
           <div className="mt-4">
             <button
