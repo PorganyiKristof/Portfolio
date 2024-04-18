@@ -13,7 +13,7 @@ import Spline3D from "./components/Spline3D";
 
 export default function Home() {
   return (
-    <main className="font-mono flex min-h-screen flex-col bg-[#121212]">
+    <main className="font-mono flex min-h-screen flex-col bg-[#121212] overflow-hidden">
       <Navbar />
       <TopBar />
       <ParticlesBG />
@@ -22,6 +22,11 @@ export default function Home() {
         <AchievementsSection />
         <AboutSection />
         <SkillsSection />
+      </div>
+      <div className="relative">
+        <Spline3D />
+      </div>
+      <div className="container mx-auto px-12 py-8">
         <ProjectsSection />
       </div>
       <EmailSection />

@@ -4,16 +4,16 @@ import React, { useRef } from "react";
 
 export default function Spline3D() {
   const ref = useRef();
-  const { scrollYProgress } = useScroll({
+  /* const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 10%", "end start"],
   });
-  const moveYanimation = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const moveYanimation = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]); */
   return (
     <motion.div
       ref={ref}
-      className="hidden md:block h-screen absolute left-1/4 md:left-1/3 w-full -top-28 "
-      style={{ y: moveYanimation }}
+      className="h-screen absolute left-1/4 md:left-1/3 w-full -top-28 pointer-events-none"
+      /* style={{ y: moveYanimation }} */
     >
       <script
         type="module"
@@ -22,7 +22,7 @@ export default function Spline3D() {
       ></script>
       <spline-viewer
         loading-anim-type="spinner-big-light"
-        url="https://prod.spline.design/XFMX2ehpNdVYuDmI/scene.splinecode"
+        url="https://prod.spline.design/Yc2wlZHcPiLTpc3d/scene.splinecode"
       ></spline-viewer>
     </motion.div>
   );

@@ -146,13 +146,9 @@ const Card = ({ p, index }) => {
 
 export default function ProjectsSection() {
   return (
-    <section
-      className=" text-white text-center relative overflow-x-hidden overflow-y-clip"
-      id="projects"
-    >
-      {/* <Spline3D /> */}
+    <section className=" text-white text-center relative" id="projects">
       <h1 className="text-4xl mb-12 z-50">Web Projects</h1>
-      <div className=" flex flex-col md:grid grid-cols-fluid gap-8 md:w-4/6 w-fit">
+      <div className=" flex-col grid grid-cols-fluid gap-8 md:w-4/6 w-fit">
         {PROJECT_DATA.map((p, index) => (
           <Card key={index} p={p} index={index} />
         ))}
