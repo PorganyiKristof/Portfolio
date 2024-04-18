@@ -12,7 +12,8 @@ export default function Spline3D() {
   return (
     <motion.div
       ref={ref}
-      className="h-screen absolute left-1/4 md:left-1/3 w-full -top-28 pointer-events-none"
+      /* className="h-screen absolute left-1/4 md:left-1/3 w-full -top-28 pointer-events-none" */
+      className=" absolute pointer-events-none md:left-1/3 h-full w-full"
       /* style={{ y: moveYanimation }} */
     >
       <script

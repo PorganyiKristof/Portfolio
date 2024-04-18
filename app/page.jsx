@@ -23,11 +23,13 @@ export default function Home() {
         <AboutSection />
         <SkillsSection />
       </div>
-      <div className="relative">
-        <Spline3D />
-      </div>
-      <div className="container mx-auto px-12 py-8">
-        <ProjectsSection />
+      <div className="realtive w-screen">
+        <div className=" absolute w-full h-full  overflow-hidden">
+          <Spline3D />
+        </div>
+        <div className="container mx-auto px-12 py-8">
+          <ProjectsSection />
+        </div>
       </div>
       <EmailSection />
       <Footer />
