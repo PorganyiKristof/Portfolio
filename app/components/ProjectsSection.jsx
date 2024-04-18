@@ -71,7 +71,7 @@ const Card = ({ p, index }) => {
   return (
     <motion.div
       ref={ref}
-      className="border-2 border-primary-400 rounded-xl bg-primary-950 bg-opacity-50 border-opacity-50"
+      className=" rounded-xl  border-opacity-50"
       initial={{
         transform: "translateY(50px)",
         opacity: 0,
@@ -85,21 +85,40 @@ const Card = ({ p, index }) => {
       }
       transition={{ duration: 1, delay: index / 3 }}
     >
-      <div className="relative group overflow-hidden">
-        <div className=" absolute top-0 left-0 bottom-0 right-0 rounded-t-xl bg-gray-800/[.7] hidden group-hover:flex"></div>
-        <div className="absolute overlay w-full h-full gap-10 p-5 text-sm text-left -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 hidden group-hover:flex flex-col">
+      <div
+        className="relative group overflow-hidden"
+        onClick={handletitleClick}
+      >
+        <div className=" absolute top-0 left-0 bottom-0 right-0 rounded-xl bg-gray-800/[.7] hidden group-hover:flex"></div>
+        <div className=" absolute overlay w-full h-full gap-10 p-5 text-sm text-left -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 hidden group-hover:flex flex-col">
           <div className="sm:text-lg h-full ">{p?.text}</div>
+          {p.link && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6 absolute right-5 top-3"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+              />
+            </svg>
+          )}
         </div>
 
         <Image
           src={p.xl_image}
           alt="project-image"
-          className="rounded-t-xl w-fit h-fit"
+          className="rounded-xl w-fit h-full border-2 border-primary-600"
           width="500"
           height="500"
         />
       </div>
-      <h5
+      {/* <h5
         className={`flex border-t-2 border-primary-400 p-4 uppercase text-md relative hover:bg-primary-800  justify-center`}
         onClick={handletitleClick}
       >
@@ -120,7 +139,7 @@ const Card = ({ p, index }) => {
             />
           </svg>
         )}
-      </h5>
+      </h5> */}
     </motion.div>
   );
 };
@@ -131,7 +150,7 @@ export default function ProjectsSection() {
       className=" text-white text-center relative overflow-x-hidden overflow-y-clip"
       id="projects"
     >
-      <Spline3D />
+      {/* <Spline3D /> */}
       <h1 className="text-4xl mb-12 z-50">Web Projects</h1>
       <div className=" flex flex-col md:grid grid-cols-fluid gap-8 md:w-4/6 w-fit">
         {PROJECT_DATA.map((p, index) => (
