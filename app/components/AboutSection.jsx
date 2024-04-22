@@ -181,13 +181,13 @@ export default function AboutSection() {
         <div className="text-center sm:text-left">
           <h1 className="text-4xl font-bold text-white my-4">About Me</h1>
           <p className="text-base md:text-lg">
-            I&apos;m a 23-year-old. Currently I work at InnoTeq Kft. 8 hours a
-            day for almost 3 and a half years. Most of my projects I work alone,
-            so I would like to try myself in a reliable team. I consider myself
-            a helpful and empathetic person, which allows me to work effectively
-            with others. I like challenges and I am constantly improving myself.
-            I always set myself new goals and strive for the best in everything
-            I do.
+            I&apos;m 23 years old and currently work at InnoTeq Kft. I have been
+            with the company for almost 3 and a half years. I consider myself a
+            as helpful and empathetic person, which enables me to work
+            effectively with others. I enjoy challenges and constantly striving
+            to improve myself. I always set new goals for myself and aim for
+            excellence in everything I do. As a result, I have launched multiple
+            stores and successfully established a brand in 2024.
           </p>
           <TabSection />
         </div>

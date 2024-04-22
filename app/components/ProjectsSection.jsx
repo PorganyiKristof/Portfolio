@@ -61,6 +61,18 @@ const PROJECT_DATA = [
     tag: ["web-page"],
     text: <ProtectedComp>11 interactive games</ProtectedComp>,
   },
+  {
+    title: "Restaurator",
+    xl_image: "/images/projects/apamportfolio_xl.PNG",
+    link: "https://apamportfolio.vercel.app",
+    tag: ["web-page"],
+    text: (
+      <span>
+        Next Js , TailwindCSS , Framer Motion , Nodemailer
+        <br />
+      </span>
+    ),
+  },
 ];
 const Card = ({ p, index }) => {
   const ref = useRef();
