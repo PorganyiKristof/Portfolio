@@ -39,7 +39,7 @@ export default function HeroSection() {
             >
               Hire Me!
             </button>
-            <a href="/image/CV_EN.PNG" download>
+            <a href="/images/cv.pdf" target="_blank" download>
               <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-transparent hover:bg-slate-800 text-white mt-3 bg-gradient-to-tr from-primary-800 via-primary-400-600 to-secondary-500 ">
                 <span className=" block bg-[#121212] px-5 py-2 w-full sm:w-fit rounded-full hover:bg-slate-800">
                   Download CV
