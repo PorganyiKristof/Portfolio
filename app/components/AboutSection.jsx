@@ -175,7 +175,7 @@ export default function AboutSection() {
           src={"/images/about-image.png"}
           width={500}
           height={500}
-          className="rounded-full"
+          className="rounded-b-full"
           alt="about-image"
         />
         <div className="text-center sm:text-left">
