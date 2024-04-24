@@ -40,7 +40,7 @@ export default function HeroSection() {
               Hire Me!
             </button>
             <a
-              href="/images/cv.pdf"
+              href="/images/Porganyi_Kristof_CV_EN.pdf"
               target="_blank"
               download="Porganyi_Kristof_CV_EN"
             >
