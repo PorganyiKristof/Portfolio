@@ -39,7 +39,11 @@ export default function HeroSection() {
             >
               Hire Me!
             </button>
-            <a href="/images/cv.pdf" target="_blank" download>
+            <a
+              href="/images/cv.pdf"
+              target="_blank"
+              download="Porganyi_Kristof_CV_EN"
+            >
               <button
                 href="#about"
                 className="px-1 py-1  w-full sm:w-fit rounded-full mr-4 text-white bg-gradient-to-tr from-primary-800 via-primary-400-600 to-secondary-500 animate-pulse"
