@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+
 import AboutSection from "./components/AboutSection";
 import AchievementsSection from "./components/AchivementsSection";
 import EmailSection from "./components/EmailSection";
