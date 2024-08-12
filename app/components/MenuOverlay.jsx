@@ -1,6 +1,7 @@
 import React from "react";
 import NavLink from "./NavLink";
 import { motion } from "framer-motion";
+import LangSelector from "./LangSelector";
 
 export default function MenuOverlay({ links }) {
   return (
@@ -13,9 +14,16 @@ export default function MenuOverlay({ links }) {
     >
       {links.map((link, index) => (
         <li key={index} className="border-b w-1/2 text-center mb-5">
-          <NavLink href={link.href} title={link.title} />
+          <NavLink
+            href={link.href}
+            title={link.title}
+            navigateTo={link.navigateTo}
+          />
         </li>
       ))}
+      <li>
+        <LangSelector />
+      </li>
     </motion.ul>
   );
 }
