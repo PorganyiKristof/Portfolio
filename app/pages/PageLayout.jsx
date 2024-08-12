@@ -10,8 +10,9 @@ export default function PageLayout({ children }) {
     <>
       <Navbar />
       <TopBar />
-      {children}
+      <div className="z-10">{children}</div>
       <ParticlesBG />
+
       <EmailSection />
       <Footer />
     </>
