@@ -144,8 +144,10 @@ const servicesTitle = {
 function List({ children, list, title }) {
   if (title) {
     return (
-      <div className="my-40 w-2/3 2xl:w-1/3 m-auto text-slate-300 ">
-        <h2 className="text-2xl mb-20 ">{servicesTitle[lang].title}</h2>
+      <div className="my-40 w-4/5 2xl:w-1/3 m-auto text-slate-300 ">
+        <h2 className="text-2xl lg:text-3xl mb-20 font-bold">
+          {servicesTitle[lang].title}
+        </h2>
         {list.map((service) => (
           <ListItem
             key={uuid()}
@@ -190,12 +192,16 @@ function ListItem({ children, description, list, sublist, price }) {
       whileTap={sublist && { scale: 0.99 }}
       className={
         sublist
-          ? "border rounded-lg p-5 mb-2 text-[16px] cursor-pointer"
-          : "border rounded-lg p-7 mb-5 text-xl  cursor-pointer bg-violet-400 bg-opacity-40 shadow-md			"
+          ? "border rounded-lg p-3 mb-2 text-sm lg:text-xl cursor-pointer"
+          : "border rounded-lg p-3 md:p-7 mb-5 text-md lg:text-2xl  cursor-pointer bg-violet-400 bg-opacity-40 shadow-md			"
       }
     >
-      <div className="cursor-pointer " onClick={handleOnClick}>
+      <div
+        className="cursor-pointer font-bold text-center lg:text-left"
+        onClick={handleOnClick}
+      >
         <h3>{children}</h3>
+        {isVisible && <hr className="mb-2 mt-1" />}
       </div>
       <AnimatePresence>
         {isVisible && (
@@ -205,11 +211,11 @@ function ListItem({ children, description, list, sublist, price }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="ml-2"
+            className="lg:ml-2"
           >
             <div className="italic text-sm ">{description}</div>
             {price && (
-              <div>
+              <div className="text-end">
                 {priceTitle[lang].title}: {price}
               </div>
             )}
